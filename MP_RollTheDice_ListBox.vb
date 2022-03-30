@@ -7,18 +7,20 @@
 Public Class MP_RollTheDice_ListBox
 
     Private Sub MP_RollTheDice_ListBox_Load(sender As Object, e As EventArgs) Handles Me.Load
-
         DrawColumns()
         RollDice()
         Console.ReadLine()
     End Sub
+
+    'These varibles allow for easy changes to all code
     Dim line As String
     Dim columnUBound As Integer = 1
     Dim Bound As Integer = 5
     Dim lineLength As Integer = 12
     Dim test As String
-    Sub DrawColumns()
 
+    'Draws title and options of roll
+    Sub DrawColumns()
         line = ""
 
         For i = 1 To columnUBound
@@ -38,10 +40,11 @@ Public Class MP_RollTheDice_ListBox
             Console.WriteLine(line)
             line = ""
         Next
-
+        'Divider
         DisplayListBox.Items.Add((StrDup((56), "-")))
-
     End Sub
+
+    'draws and creates random numbers to be placed in array 
     Dim arrayLength As Integer = 12
     Sub RollDice()
         Dim rndNumbers(arrayLength) As Integer
@@ -61,9 +64,9 @@ Public Class MP_RollTheDice_ListBox
         DisplayListBox.Items.Add(test)
         Console.WriteLine(test)
         test = ""
-
     End Sub
 
+    'Creates random numbers 
     Function RandomNumberInRange(Optional max% = 10%, Optional min% = 0%) As Integer
         Dim _max% = max - min
         If _max < 0 Then
@@ -72,9 +75,5 @@ Public Class MP_RollTheDice_ListBox
         Randomize(DateTime.Now.Millisecond)
         Return CInt(System.Math.Floor(Rnd() * (_max + 1))) + min
     End Function
-
-
-
-
 
 End Class
