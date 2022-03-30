@@ -76,4 +76,13 @@ Public Class MP_RollTheDice_ListBox
         Return CInt(System.Math.Floor(Rnd() * (_max + 1))) + min
     End Function
 
+    Private Sub RollButton_Click(sender As Object, e As EventArgs) Handles RollButton.Click
+        DisplayListBox.Items.Clear()
+        DrawColumns()
+        RollDice()
+    End Sub
+
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        Me.Close()
+    End Sub
 End Class
